@@ -117,6 +117,7 @@ type UpdateProfileRequest struct {
 	Avatar   string `json:"avatar"`
 }
 
+// 更新個人資料
 func (h *AuthHandler) UpdateProfile(c *gin.Context) {
 	userID, exists := c.Get("user_id")
 	if !exists {
@@ -156,6 +157,7 @@ type ChangePasswordRequest struct {
 	NewPassword string `json:"new_password" binding:"required,min=6"`
 }
 
+// 修改密碼
 func (h *AuthHandler) ChangePassword(c *gin.Context) {
 	userID, exists := c.Get("user_id")
 	if !exists {
