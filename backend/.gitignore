@@ -30,3 +30,12 @@ go.work.sum
 # Editor/IDE
 # .idea/
 # .vscode/
+
+## frontend
+.DS_Store
+/node_modules/
+
+# React Router
+/.react-router/
+/build/
+
