@@ -1,6 +1,9 @@
+import React from "react";
+
 import type { Route } from "./+types/home";
 import { Welcome } from "../welcome/welcome";
-import { Link } from "react-router";
+import { Breadcrumb, Spin } from "antd";
+import { Divider, Typography } from 'antd';
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -10,13 +13,27 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
-  return (
-    <div>
-      <nav style={{ padding: "1rem", borderBottom: "1px solid #ccc" }}>
-        <Link to="/" style={{ marginRight: "1rem" }}>Home</Link>
-        <Link to="/building">Building</Link>
-      </nav>
+  const [SpinCheck, setSpinCheck] = React.useState(false);
+
+  // React.useEffect(() => {
+  //   // Simulate a loading delay
+  //   const timer = setTimeout(() => {
+  //     setSpinCheck(false);
+  //   }, 1000); // 2 seconds delay
+
+  //   return () => clearTimeout(timer); // Cleanup the timer on unmount
+  // }, []);
+
+  return(
+    <Spin tip="載入中..." spinning={SpinCheck} size="large">
+      <Breadcrumb
+        items={[{ title: 'Home' }]}
+        style={{ margin: 1 }}
+      />
+      <Divider style={{ borderColor: "black", borderWidth: 1 }} />
+      
+      <Typography.Title level={3}>Welcome to the Home Page</Typography.Title>
       <Welcome />
-    </div>
+    </Spin>
   );
 }

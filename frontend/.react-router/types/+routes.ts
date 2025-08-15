@@ -16,12 +16,17 @@ type Pages = {
   "/building": {
     params: {};
   };
+  "/*": {
+    params: {
+      "*": string;
+    };
+  };
 };
 
 type RouteFiles = {
   "root.tsx": {
     id: "root";
-    page: "/" | "/building";
+    page: "/" | "/building" | "/*";
   };
   "routes/home.tsx": {
     id: "routes/home";
@@ -30,5 +35,9 @@ type RouteFiles = {
   "routes/common/building.tsx": {
     id: "routes/common/building";
     page: "/building";
+  };
+  "routes/not-found.tsx": {
+    id: "routes/not-found";
+    page: "/*";
   };
 };

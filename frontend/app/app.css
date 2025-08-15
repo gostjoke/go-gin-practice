@@ -13,3 +13,20 @@ body {
     color-scheme: dark;
   }
 }
+
+.custom-menu .ant-menu-item,
+.custom-menu .ant-menu-submenu-title {
+  border-bottom: 1px solid #bcbbbb;
+  /* box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1); */
+  margin: 0;
+}
+
+.ant-menu {
+  user-select: none;
+}
+/* 最後一個 item 不要底線 */
+/* .custom-menu .ant-menu-item:last-child,
+.custom-menu .ant-menu-submenu:last-child > .ant-menu-submenu-title {
+  border-bottom: none;
+} */
+
