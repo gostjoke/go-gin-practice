@@ -1,5 +1,6 @@
 import type { Route } from "./+types/home";
 import { Welcome } from "../welcome/welcome";
+import { Link } from "react-router";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -9,5 +10,13 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
-  return <Welcome />;
+  return (
+    <div>
+      <nav style={{ padding: "1rem", borderBottom: "1px solid #ccc" }}>
+        <Link to="/" style={{ marginRight: "1rem" }}>Home</Link>
+        <Link to="/building">Building</Link>
+      </nav>
+      <Welcome />
+    </div>
+  );
 }
